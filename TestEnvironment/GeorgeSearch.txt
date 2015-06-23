@@ -1,0 +1,10 @@
+{
+    "responseData": {
+        "results": [
+            {"titleNoFormatting": "Curious George . Home | PBS KIDS"},
+            {"titleNoFormatting": "Curious George . Games | PBS KIDS"},
+            {"titleNoFormatting": "George - Wikipedia, the free encyclopdeia"},
+            {"titleNoFormatting": "George Clothing at ASDA | Women's Clothing, Men's Clothing Kids ..."}
+        ]
+    }
+}
