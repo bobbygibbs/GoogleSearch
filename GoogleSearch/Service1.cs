@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Configuration;
 
 namespace GoogleSearch
 {
@@ -15,13 +16,19 @@ namespace GoogleSearch
     [AspNetCompatibilityRequirements(RequirementsMode=AspNetCompatibilityRequirementsMode.Allowed)]
     public class Service1 : IService1
     {
-        string path = "C:\\Visual Studio 2013\\Projects\\GoogleSearch\\TestEnvironment\\GeorgeSearch.txt";
 
         public string processSearch(string query)
         {
+            String url = ConfigurationManager.AppSettings["TargetAddress"];
+
+            if (query == null)
+            {
+                query = "George";
+            }
+
             HttpClient client = new HttpClient();
             //Uri address = new Uri("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=" + query); Limited queries; Cannot be automated; Deprecated
-            Uri address = new Uri("https://google.com/search?q=" + query + "&gws_rd=ssl");
+            Uri address = new Uri(url + query);
 
             HttpResponseMessage response = client.GetAsync(address).Result;
             String stream = response.Content.ReadAsStringAsync().Result;
@@ -34,14 +41,7 @@ namespace GoogleSearch
             
             String trim = Regex.Replace(partitions[first_result], "<[^>]+>", String.Empty);
 
-            return trim.Substring(trim.IndexOf(">") + 1, trim.IndexOf("<") - trim.IndexOf(">") - 1);  
-        }
-
-        public string processFauxSearch(string query)
-        {
-            dynamic result = JsonConvert.DeserializeObject(new StreamReader(path).ReadToEndAsync().Result);
-
-            return result.responseData.results[0].titleNoFormatting.ToString();
+            return trim.Substring(trim.IndexOf(">") + 1, trim.IndexOf("<") - trim.IndexOf(">") - 1);
         }
     }
 

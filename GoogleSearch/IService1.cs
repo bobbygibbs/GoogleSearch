@@ -16,9 +16,5 @@ namespace GoogleSearch
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "Google/{query}")]
         string processSearch(string query);
-
-        [OperationContract]
-        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "MockGoogle/{query}")]
-        string processFauxSearch(string query);
     }
 }
