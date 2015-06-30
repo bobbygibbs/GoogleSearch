@@ -7,13 +7,12 @@ require 'find'
 Port = 44974
 Address = 'http://localhost:' << Port.to_s << '/'
 response = nil
-extension = nil
+extension = 'Test/Google/'
 
 Given(/I search on Google.com$/) do
     %x(copy TestEnvironment\\Web.Real.config TestEnvironment\\Web.config)
 
     response = open('http://google.com/') {|f| f.status[0]}.to_i
-    extension = 'Test/Google/'
     
     assert_equal response, 200
 end
@@ -26,7 +25,6 @@ Given(/I search on the mock-up of Google.com$/) do
     rescue OpenURI::HTTPError => error
         response = error.io
     end
-    extension = 'Test/MockGoogle/'
     
     refute_equal response.status[0].to_i, 404
 end
