@@ -10,7 +10,7 @@ response = nil
 extension = 'Test/Google/'
 
 Given(/I search on Google.com$/) do
-    %x(copy TestEnvironment\\Web.Real.config TestEnvironment\\Web.config)
+    %x(copy AcceptanceTesting\\TestEnvironment\\Web.Real.config AcceptanceTesting\\TestEnvironment\\Web.config)
 
     response = open('http://google.com/') {|f| f.status[0]}.to_i
     
@@ -18,7 +18,7 @@ Given(/I search on Google.com$/) do
 end
 
 Given(/I search on the mock-up of Google.com$/) do
-    %x(copy TestEnvironment\\Web.Mock.config TestEnvironment\\Web.config)
+    %x(copy AcceptanceTesting\\TestEnvironment\\Web.Mock.config AcceptanceTesting\\TestEnvironment\\Web.config)
 
     begin
         response = open(Address)
