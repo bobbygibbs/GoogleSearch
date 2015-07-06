@@ -1,5 +1,5 @@
 # GoogleSearch
-I really just want to figure out pull requests.
+Jenkins job to build project and environment to run acceptance framework for REST service.
 ## Requirements
 * Ruby
   * DevKit
