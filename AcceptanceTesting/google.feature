@@ -6,7 +6,7 @@ Feature: Google Search Results
     Scenario: George produces Curious George
         Given I search on Google.com
         When I search for George
-        Then the first result I get back should be Curious George
+        Then the first result I get back should be Sheriff Woody
         
     # Scenario: Woody produces Sheriff Woody
     #     Given I search on Google.com
