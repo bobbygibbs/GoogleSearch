@@ -1,4 +1,4 @@
-# GoogleSearch  
+# GoogleSearch  HAHA i finally got it to work
 Project and test environment to run acceptance framework for REST service that grabs the top result of a web search on [Google](https://www.google.com/).
 ## Requirements
 * [**Ruby**](https://www.ruby-lang.org/en/downloads/)
