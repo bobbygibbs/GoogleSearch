@@ -9,7 +9,7 @@ Project and test environment to run acceptance framework for REST service that g
 * [**Git**](https://git-scm.com/downloads/)  
 * [**MSBuild**](https://github.com/microsoft/msbuild/)  
 
-## Jenkins  
+## Leeroy Jenkins  
 ### Job Description
 To integrate with Jenkins, create a job that hosts **AcceptanceTesting\TestEnvironment** from IIS Express, and runs Ruby on the **AcceptanceTesting\mock.rb**. Then bundler may be used to execute the cucumber tests. There should be a post-build task to kill the two hosting processes which should be the only **iisexpress.exe** and **ruby.exe** processes remaining; if not, you will need to track their PIDs.
 #### GitHub SCM Setup  
