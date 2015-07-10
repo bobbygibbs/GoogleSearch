@@ -54,7 +54,7 @@ The following steps will allow our Jenkins job to automatically build any potent
 3. Ensure Job settings are correct  
 		a. Click on your job  
 		b. Click on "Configure"  
-		c. Under "Source Code Management," you should have Git selected with the appropriate Repository URL and credentials (not needed for public repositories).  
+		c. Under "Source Code Management," you should have Git selected with the appropriate Repository URL and credentials (not needed for public repositories), as well as "**${sha1}**" in "Branches to build".  
 		d. Under the "Credentials" field, click on "Advanced" to reveal "Name" and "Refspec" which should be filled out with the correct alias of the remote repository (e.g. origin), and **+refs/pull\*:refs/remotes/origin/pr/\*** respectively.  
 		e. Under "Build Triggers" section, check "Build when a change is pushed to GitHub" and "GitHub Pull Request Builder"  
 		f. Ensure that "Use github hooks for build triggering" is checked, and that the proper admin account is listed in "Admin list"  
